@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiToolsHub - Free Online Tools for Finance, Education, Health & More</title>
+    <meta name="description" content="Access 15+ free online tools for finance, education, health, text/file conversion, and entertainment. No installation required. Fast, secure, and easy to use.">
+    <meta name="keywords" content="free online tools, calculator, converter, finance tools, education tools, health calculators, text to speech, pdf tools">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/multi-tools/">
+    <meta property="og:title" content="MultiToolsHub - Free Online Tools Collection">
+    <meta property="og:description" content="Access 15+ free online tools for finance, education, health, text/file conversion, and entertainment.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/multi-tools/">
+    <meta property="twitter:title" content="MultiToolsHub - Free Online Tools Collection">
+    <meta property="twitter:description" content="Access 15+ free online tools for finance, education, health, text/file conversion, and entertainment.">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MultiToolsHub",
+      "url": "https://yourusername.github.io/multi-tools/",
+      "description": "A collection of free online tools for finance, education, health, text/file conversion, and entertainment.",
+      "applicationCategory": "UtilityApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --header-bg: #ffffff;
+            --footer-bg: #2b2d42;
+            --footer-text: #ffffff;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --text-color: #f8f9fa;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --header-bg: #1e1e1e;
+            --footer-bg: #000000;
+            --footer-text: #f8f9fa;
+            --border-color: #2d2d2d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--header-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #tool-search {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        #search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 7px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        #search-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            display: none;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-results a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .search-results a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 4rem 0;
+        }
+
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tool-card p {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .tool-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .tool-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* SEO Content Section */
+        .seo-content {
+            padding: 4rem 0;
+            background-color: var(--card-bg);
+        }
+
+        .seo-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .seo-content h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--secondary-color);
+        }
+
+        .seo-content h4 {
+            font-size: 1.2rem;
+            margin: 1.2rem 0 0.8rem;
+        }
+
+        .seo-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--header-bg);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: var(--shadow);
+                padding: 1rem 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 1.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tool Page Specific Styles */
+        .tool-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .tool-form {
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .result-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .faq-section {
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem;
+            background-color: var(--bg-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-answer {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1rem;
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <span>MultiToolsHub</span>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#finance" class="nav-link">Finance</a></li>
+                    <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+                    <li class="nav-item"><a href="#health" class="nav-link">Health</a></li>
+                    <li class="nav-item"><a href="#text-file" class="nav-link">Text & File</a></li>
+                    <li class="nav-item"><a href="#fun" class="nav-link">Fun</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                </ul>
+                <div class="theme-toggle">
+                    <button id="theme-toggle-btn">🌙</button>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Free Online Multi-Tools for Everyday Needs</h1>
+            <p>Access 15+ powerful tools for finance, education, health, file conversion, and entertainment - completely free!</p>
+            
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="tool-search" placeholder="Search for tools...">
+                <button id="search-btn">Search</button>
+                <div id="search-results" class="search-results"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <!-- Finance Tools -->
+            <div id="finance" class="category-section">
+                <h2>Finance Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>EMI Calculator</h3>
+                        <p>Calculate your Equated Monthly Installment for loans</p>
+                        <a href="#emi-calculator" class="tool-btn">Use Tool</a>
+                    </div>
+                    <div class="tool-card">
+                        <h3>GST Calculator</h3>
+                        <p>Calculate GST amounts quickly and accurately</p>
+                        <a href="#gst-calculator" class="tool-btn">Use Tool</a>
+                    </div>
+                    <div class="tool-card">
+                        <h3>FD Calculator</h3>
+                        <p>Calculate returns on your Fixed Deposits</p>
+                        <a href="#fd-calculator" class="tool-btn">Use Tool</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education Tools -->
+            <div id="education" class="category-section">
+                <h2>Education Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>GPA to Percentage</h3>
+                        <p>Convert your GPA score to percentage</p>
+                        <a href="#gpa-converter" class="tool-btn">Use Tool</a>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Typing Speed Test</h3>
+                        <p>Test and improve your typing speed</p>
+                        <a href="#typing-test" class="tool-btn">Use Tool</a>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Age Calculator</h3>
+                        <p>Calculate exact age from birth date</p>
+                        <a href="#age-calculator" class="tool-btn">Use Tool</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Health Tools -->
+            <div id="health" class="category-section">
+                <h2>Health Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>BMI Calculator</h3>
+                        <p>Calculate your Body Mass Index</p>
+                        <a href="#bmi-calculator" class="tool-btn">Use Tool</a>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Calories Burn Calculator</h3>
+                        <p>Estimate calories burned in activities</p>
+                        <a href="#calories-calculator" class="tool-btn">Use Tool</a>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Water Intake Calculator</h3>
+                        <p>Calculate optimal daily water intake</p>
+                        <a href="#water-calculator" class="tool-btn">Use Tool</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text & File Tools -->
+            <div id="text-file" class="category-section">
+                <h2>Text & File Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>PDF Merge Tool</h3>
+                        <p>Merge multiple PDF files into one</p>
+                        <a href="#pdf-merge" class="tool-btn">Use Tool</a>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Text to Speech</h3>
+                        <p>Convert text to natural sounding audio</p>
+                        <a href="#text-to-speech" class="tool-btn">Use Tool</a>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Speech to Text</h3>
+                        <p>Transcribe audio to text accurately</p>
+                        <a href="#speech-to-text" class="tool-btn">Use Tool</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fun Tools -->
+            <div id="fun" class="category-section">
+                <h2>Fun & Entertainment</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>Love Calculator</h3>
+                        <p>Calculate love compatibility between two names</p>
